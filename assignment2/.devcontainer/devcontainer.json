@@ -1,0 +1,42 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "irobman",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"build": {
+		"dockerfile": "../Dockerfile",
+		"args": {
+			"PLATFORM": "linux/amd64"
+		}
+	},
+	"runArgs": [
+		"--net=host",
+		"--platform=linux/amd64",
+		"--privileged",
+		"--volume=/tmp/.X11-unix:/tmp/.X11-unix:rw",
+		"--env=DISPLAY"
+	],
+	"customizations": {
+		"vscode": {
+			"settings": {
+				// Set Python path to point to the Conda environment
+				"python.defaultInterpreterPath": "/opt/conda/envs/irobman/bin/python",
+				// Optional: Automatically select the interpreter in VS Code
+				"python.pythonPath": "/opt/conda/envs/irobman/bin/python"
+			},
+			"extensions": [
+				"ms-python.python" // Python extension for VS Code
+			]
+		}
+	},
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "uname -a",
+	// Configure tool-specific properties.
+	// "customizations": {},
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	"remoteUser": "jupyter_user"
+}
