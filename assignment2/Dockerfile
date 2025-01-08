@@ -35,8 +35,8 @@ RUN /bin/bash ~/miniconda.sh -b -p /opt/conda
 # Put conda in path so we can use conda activate
 ENV PATH=$CONDA_DIR/bin:$PATH
 
-# Create conda environment with Python 3.10
-RUN conda create -n irobman python=3.10 -y
+# Create conda environment with Python 3.8.16
+RUN conda create -n irobman python=3.8.16 -y
 
 # Create symbolic link for libglut
 RUN cd /usr/lib/x86_64-linux-gnu/ && ln -s libglut.so.3 libglut.so.3.12 || true
