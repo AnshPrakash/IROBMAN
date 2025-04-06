@@ -1,1 +1,1 @@
-# IROBMAN
+# IROBMAN: Intelligent Robotic Manipulation
